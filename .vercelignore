@@ -1,0 +1,6 @@
+.local
+apps/customer
+apps/provider
+uploads
+**/.env
+**/.env.local

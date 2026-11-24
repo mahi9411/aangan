@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { background: #F3EEE6; color: #1C1612; }
+.arch { width: 28px; height: 28px; }
+
+@layer components {
+  .panel { @apply rounded-2xl border border-line bg-card shadow-[0_1px_0_rgba(28,22,18,0.04)]; }
+  .btn { @apply inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium transition disabled:opacity-50; }
+  .btn-primary { @apply btn bg-clay text-white hover:bg-[#9A3E1E]; }
+  .btn-ghost { @apply btn border border-line bg-white hover:bg-sand; }
+  .field { @apply w-full rounded-xl border border-line bg-white px-3 py-2 text-sm outline-none focus:border-clay; }
+  .pill { @apply inline-flex rounded-full bg-sand px-2.5 py-1 text-xs font-medium text-ink; }
+}

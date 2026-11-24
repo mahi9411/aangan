@@ -1,0 +1,16 @@
+node_modules
+.local
+dist
+.next
+.expo
+uploads
+.env
+.env.local
+*.log
+coverage
+apps/api/src/generated
+apps/customer/.expo
+apps/provider/.expo
+npm-debug.log*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Aangan",
+    "slug": "aangan-customer",
+    "scheme": "aangan-customer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": { "backgroundColor": "#F4EFE6" },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "in.aangan.customer",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Aangan uses your location to confirm you are in a live city and to share the visit address with your professional.",
+        "NSPhotoLibraryUsageDescription": "Aangan uses photos you choose so the professional can see the problem before arriving.",
+        "NSCameraUsageDescription": "Aangan uses the camera so you can photograph the issue for your booking."
+      }
+    },
+    "android": {
+      "package": "in.aangan.customer",
+      "adaptiveIcon": { "backgroundColor": "#F4EFE6" },
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION", "CAMERA"]
+    },
+    "web": { "bundler": "metro" },
+    "plugins": ["expo-router", "expo-secure-store", "expo-font", "expo-web-browser"],
+    "experiments": { "typedRoutes": false }
+  }
+}

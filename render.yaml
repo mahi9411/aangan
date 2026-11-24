@@ -1,0 +1,47 @@
+# Free demo. Render sleeps after 15 idle minutes. Neon holds the database.
+# Code 123456 signs in to the demo phones while DEMO_MODE is true.
+services:
+  - type: web
+    name: aangan-api
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --include=dev && npm run build -w @aangan/api && npm run db:setup -w @aangan/api
+    startCommand: npm run start -w @aangan/api
+    healthCheckPath: /v1/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: ALLOW_DEV_OTP
+        value: "true"
+      - key: OTP_DEV_CODE
+        value: "123456"
+      - key: SMS_PROVIDER
+        value: console
+      - key: PAYMENTS_MODE
+        value: mock
+      - key: CORS_ORIGINS
+        value: https://aangan-ops.onrender.com
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: OTP_PEPPER
+        generateValue: true
+      - key: FIELD_ENCRYPTION_KEY
+        generateValue: true
+
+  - type: web
+    name: aangan-ops
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install --include=dev && npm run build -w @aangan/admin
+    startCommand: cd apps/admin && npx next start -H 0.0.0.0 -p $PORT
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://aangan-api.onrender.com/v1

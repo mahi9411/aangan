@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: aangan
+      POSTGRES_PASSWORD: aangan
+      POSTGRES_DB: aangan
+    ports:
+      - "5432:5432"
+    volumes:
+      - aangan_pg:/var/lib/postgresql/data
+      - ./infra/init-postgis.sql:/docker-entrypoint-initdb.d/10-postgis.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aangan -d aangan"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  aangan_pg:

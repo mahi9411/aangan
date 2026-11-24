@@ -1,0 +1,21 @@
+{
+  "name": "aangan",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/admin",
+    "packages/contracts"
+  ],
+  "scripts": {
+    "dev:api": "npm run start:dev -w @aangan/api",
+    "dev:admin": "npm run dev -w @aangan/admin",
+    "db:up": "docker compose up -d db",
+    "db:setup": "npm run db:setup -w @aangan/api",
+    "build:api": "npm run build -w @aangan/api",
+    "build:admin": "npm run build -w @aangan/admin",
+    "test": "npm run test -w @aangan/api"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

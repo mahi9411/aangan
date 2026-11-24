@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Aangan Pro",
+    "slug": "aangan-provider",
+    "scheme": "aangan-provider",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": { "backgroundColor": "#1F4F45" },
+    "ios": {
+      "bundleIdentifier": "in.aangan.provider",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Aangan Pro uses your location while you are online so nearby customers can request you.",
+        "NSCameraUsageDescription": "Aangan Pro uses the camera for your verification selfie.",
+        "NSPhotoLibraryUsageDescription": "Aangan Pro uses photos you choose for KYC documents."
+      }
+    },
+    "android": { "package": "in.aangan.provider", "adaptiveIcon": { "backgroundColor": "#1F4F45" } },
+    "web": { "bundler": "metro" },
+    "plugins": ["expo-router", "expo-secure-store", "expo-font"],
+    "experiments": { "typedRoutes": false }
+  }
+}
